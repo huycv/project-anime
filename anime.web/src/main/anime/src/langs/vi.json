@@ -1,0 +1,20 @@
+{
+  "routes": {
+    "home": "Home",
+    "anime": "Anime"
+  },
+  "layouts": {
+    "home": {
+      "anime": "ANIME",
+      "manga": "MANGA",
+      "do_choi": "ĐỒ CHƠI",
+      "game": "GAME",
+      "tin_tuc": "TIN TỨC",
+      "search": "Tìm kiếm Anime...",
+      "footer": {
+        "title": "Liên hệ với chúng tôi",
+        "action": "Yuki Huy"
+      }
+    }
+  }
+}
