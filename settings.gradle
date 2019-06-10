@@ -8,3 +8,8 @@
  */
 
 rootProject.name = 'project-anime'
+
+include ':anime.core';
+include ':anime.app';
+include ':anime.infra';
+include ':anime.web';

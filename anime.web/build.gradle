@@ -1,19 +1,31 @@
 plugins {
-	id 'org.springframework.boot' version '2.1.5.RELEASE'
-	id 'java'
+    id 'java'
+    id 'war'
+    id 'org.springframework.boot'
 }
 
 apply plugin: 'io.spring.dependency-management'
 
-group = 'com.example'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
-
-repositories {
-	mavenCentral()
+dependencyManagement {
+    imports {
+        mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
+    }
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation project(':anime.core')
+    implementation project(':anime.app')
+    implementation project(':anime.infra')
+    implementation('org.springframework.boot:spring-boot-starter-security')
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation('org.springframework.boot:spring-boot-starter-actuator')
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa') {
+        exclude group: "org.hibernate", module:"hibernate-entitymanager"
+        exclude group: "org.hibernate", module:"hibernate-core"
+    }
+    implementation('org.springframework:spring-instrument')
+    implementation 'com.microsoft.sqlserver:mssql-jdbc'
+    
+    runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 }
